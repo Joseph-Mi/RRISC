@@ -1,0 +1,10 @@
+[package]
+name = "my_app"
+version = "0.1.0"
+authors = ["Your Name <you@example.com>"]
+
+[dependencies]
+serde = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+
+cargo build and cargo run reads this file to figure out how to build your project and what crates to download
