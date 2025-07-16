@@ -1,10 +1,15 @@
 [package]
-name = "my_app"
+name = "RRISC"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
+authors = ["jm.josephmi@gmail.com"]
+edition = "2025"
+description = "A RISC-based softcore processor in Rust"
 
 [dependencies]
-serde = "1.0"
-tokio = { version = "1.0", features = ["full"] }
+# Add libraries here, e.g.,
+bitfield = "0.14"
+serde = { version = "1.0", features = ["derive"] }
+# ... more as you need
+
 
 cargo build and cargo run reads this file to figure out how to build your project and what crates to download
