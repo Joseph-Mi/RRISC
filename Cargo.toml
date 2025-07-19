@@ -1,15 +1,31 @@
 [package]
-name = "RRISC"
+name = "risc-cpu-emulator"
 version = "0.1.0"
-authors = ["jm.josephmi@gmail.com"]
-edition = "2025"
-description = "A RISC-based softcore processor in Rust"
+edition = "2021"
+
+[[bin]]
+name = "risc-emulator"
+path = "src/main.rs"
 
 [dependencies]
-# Add libraries here, e.g.,
-bitfield = "0.14"
-serde = { version = "1.0", features = ["derive"] }
-# ... more as you need
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+nb = "1.0"
 
+# STM32G4 HAL (optional, for peripheral access)
+# stm32g4xx-hal = { version = "0.5", features = ["stm32g474"] }
 
-cargo build and cargo run reads this file to figure out how to build your project and what crates to download
+[dependencies.embedded-hal]
+version = "0.2"
+features = ["unproven"]
+
+# Target configuration for STM32G474VET6 (ARM Cortex-M4F)
+[profile.release]
+debug = true
+lto = true
+opt-level = "s"  # Optimize for size
+
+[profile.dev]
+debug = true
+opt-level = 1

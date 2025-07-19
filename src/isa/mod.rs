@@ -1,4 +1,6 @@
-#[derive(Debug)]
+
+
+#[derive(Debug, Clone, Copy)]
 pub enum Instruction {
     // Memory
     Load    { dst: u8, addr: u16 },
@@ -9,7 +11,7 @@ pub enum Instruction {
     Move          { dst: u8, src: u16 },
     MoveIfZero    { dst: u8, src: u16 },
     MoveIfNotZero { dst: u8, src: u16 },
-    
+
     // Wide move (for writing to 10-bit dst)
     MoveWide      { dst: u16, src: u8 },
     MoveWideIfZero    { dst: u16, src: u8 },
@@ -84,7 +86,7 @@ pub fn decode(raw: u32) -> Option<Instruction> {
         0x6 => decode_shift(secondary_opcode, dst, src1, src2_imm10),
         0x7 => decode_stack(secondary_opcode, src2_imm10),
         0x8 => decode_move(secondary_opcode, dst, src2_imm10),
-        0x9 => decode_move_wide(secondary_opcode, src2_imm10, src1), // MoveWide: 10-bit dst, 8-bit src1
+        0x9 => decode_move_wide(secondary_opcode, src2_imm10, src1), // MoveWide: SRC2_IMM10 IS 10-BIT DST IN THIS CASE
         _   => None,
     }
 }

@@ -1,0 +1,10 @@
+[target.thumbv7em-none-eabihf]
+# Use probe-rs for flashing and debugging STM32G474VET6
+runner = "probe-rs run --chip STM32G474VETx"
+
+[build]
+# Default target for embedded development
+target = "thumbv7em-none-eabihf"
+
+[env]
+DEFMT_LOG = "debug"
