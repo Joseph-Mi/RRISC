@@ -27,6 +27,7 @@ fn main() -> ! {
     mem.load_program(&program, 0);
 
     // Run the emulator
+
     control_unit::run(&mut cpu, &mut mem);
 
     // In a real application, you might want to do something here
