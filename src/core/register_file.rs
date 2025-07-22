@@ -17,7 +17,7 @@ impl RegisterFile {
             if idx < 256 {
                 self.regs[idx as usize]
             } else {
-                // Extended registers or memory-mapped, return 0 for now
+                // self.memory.read(idx (- 256))
                 0
             }
         } else {
