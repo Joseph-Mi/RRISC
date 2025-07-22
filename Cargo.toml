@@ -10,14 +10,14 @@ path = "src/main.rs"
 [dependencies]
 cortex-m = "0.7"
 cortex-m-rt = "0.7"
-panic-halt = "0.2"
+panic-halt = "1.0.0"
 nb = "1.0"
 
 # STM32G4 HAL (optional, for peripheral access)
 # stm32g4xx-hal = { version = "0.5", features = ["stm32g474"] }
 
 [dependencies.embedded-hal]
-version = "0.2"
+version = "1.0.0"
 features = ["unproven"]
 
 # Target configuration for STM32G474VET6 (ARM Cortex-M4F)
